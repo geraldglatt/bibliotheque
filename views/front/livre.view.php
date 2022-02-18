@@ -19,11 +19,11 @@ $livre = $livreManager->getLivreById($id);
 <div class="row">
     <div class="col-6">
         <a class="btn btn-success" href="/?page=afficherModif&id=<?php echo $id; ?>" role="button">Modification du livre selectionné</a>
-        </div>
-        <div class="col-6">
-            <a class="btn btn-danger" href="/?page=delete&id=<?php echo $id; ?>" role="button">Suppression du livre selectionné</a>
-        </div>
     </div>
+    <div class="col-6">
+        <a class="btn btn-danger" href="/?page=delete&id=<?php echo $id; ?>" role="button">Suppression du livre selectionné</a>
+    </div>
+</div>
 <?php 
 $titre = "Page du livre selectionné";
 $content = ob_get_clean();

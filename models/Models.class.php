@@ -9,8 +9,10 @@ abstract class Models{
 
     }
     // accessible depuis les classes filles mais non par un algorythme tiers
-    protected function getBDD(){
-        if(self::$pdo === null){
+    protected function getBDD()
+    {
+        if(self::$pdo === null)
+        {
             self::setBDD();
         }
         return self::$pdo;

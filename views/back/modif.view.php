@@ -7,7 +7,7 @@ $livre = $livreManager->getLivreById($id);
 
 <form method="POST" action="/?page=update&id=<?= $id ?>">
 <?php foreach($livre as $livreSelecModif) 
-{    ?>
+{ ?>
     <div class="form-group mb-3">
         <label for="titre" class="form-label">Rentrez votre nouveau titre</label>
         <input type="text" class="form-control" id="titre" name="titre" value="<?= $livreSelecModif['titre']  ?>">

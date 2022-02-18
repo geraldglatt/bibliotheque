@@ -7,7 +7,8 @@ class LivreManager extends Models
 
     private $livres;
 
-    public function ajoutLivre($livre){
+    public function ajoutLivre($livre)
+    {
         $this->livres[] = $livre;//tableau de livres
     }
 
@@ -25,20 +26,19 @@ class LivreManager extends Models
         return $livres;
     }
 
-    public function getLivreById($id){
+    public function getLivreById($id)
+    {
         $req = $this->getBDD()->prepare("SELECT * FROM livre where id = $id");
         $req->execute();
         $livre = $req->fetchAll(PDO::FETCH_ASSOC);
         return $livre;
-        
+
         {
             throw new Exception("Le livre n'existe pas");
         }
 
     }
 
-        
-    
     public function createLivreBD($titre,$auteur,$nb_pages,$date_sortie,$images)
     {
         $req = "
@@ -53,7 +53,9 @@ class LivreManager extends Models
         $resultat = $stmt->execute();
         
     }
-    public function updateLivreBD($id,$titre,$auteur,$nb_pages,$date_sortie,$images){
+
+    public function updateLivreBD($id,$titre,$auteur,$nb_pages,$date_sortie,$images)
+    {
         $req = "
         UPDATE livre SET titre = :titre , auteur = :auteur , nb_pages = :nb_pages,
          date_sortie = :date_sortie , images = :images  where id = :id";
@@ -66,6 +68,7 @@ class LivreManager extends Models
         $stmt->bindValue(":images",$images,PDO::PARAM_STR);
         $modif = $stmt->execute();
     }
+
     public function deleteLivreBD($id)
     {
         $req ="Delete FROM livre WHERE livre.id = $id";
