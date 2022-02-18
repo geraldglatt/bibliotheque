@@ -1,0 +1,8 @@
+# on procede à la réecriture d'url
+RewriteEngine On 
+# empeche de lister les fichiers
+RewriteCond %{REQUEST_FILENAME} !-f
+# empeche de lister les dossiers
+RewriteCond %{REQUEST_FILENAME} !-d
+# reecriture de toutes les urls
+RewriteRule ^(.*)$ index.php?page=$1
